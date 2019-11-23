@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class FmaxFrmSubaray {
+public class CountSarayMaxgrtrThanK {
 	public static void main(String arg[])
 	{
 		Scanner sc=new Scanner(System.in);
@@ -16,32 +16,34 @@ public class FmaxFrmSubaray {
 			
 		}
 		
-		int temp=a[0];
-		System.out.println("Enter number");
+    	int temp=a[0],count=0;
+ 		System.out.println("Enter number");
 		int m=sc.nextInt();
-		int c=m;
-		
-		if(m<a.length) {
-			for(int i=0;i<=n-m;i++)
+         
+		for(int i=0;i<n;i++)
+		{
+			for(int j=i;j<n;j++)
 			{
-				for(int j=i;j<c;j++)
+				for(int k=i;k<=j;k++)
 				{
-					if(temp<a[j])
-					{
-						temp=a[j];
-					}			
+			 		System.out.print(a[k]);
+
+					if(temp<a[k]) {
+						temp=a[k];
+					}
 				}
-				System.out.print(temp+" ");
-				c++;
+				
+		 		System.out.println("--");
+
+				if(temp>m)
+					count++;
+				
 				temp=0;
 			}
-			
-		 }	
-		else {
-			
-			System.out.println("number cannot be greater than the length of array");
 		}
+		
+ 		System.out.println(count);
+
 
 	}
-
 }
